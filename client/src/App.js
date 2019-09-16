@@ -1,12 +1,28 @@
 import React from 'react';
+import PlayerCard from './components/PlayerCard';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
+class App extends React.Component{
+  state = {
+    players: [],
+  };
 
-    </div>
-  );
+  componentDidMount(){
+    fetch('http://localhost:5000/api/players')
+      .then(res => res.json())
+      // .then(res => console.log({ res }))
+      .then(res => this.setState({ players: res }))
+
+      .catch(err => console.log('AHHHS BUG', err))
+  }
+
+  render(){
+    return(
+      <div className='App'>
+        <PlayerCard players={this.state.players} />
+      </div>
+    )
+  }  
 }
 
 export default App;
