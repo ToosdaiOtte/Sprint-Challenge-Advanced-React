@@ -1,5 +1,6 @@
 import React from 'react';
 import PlayerCard from './components/PlayerCard';
+import Navbar from './components/Navbar';
 import './App.css';
 
 class App extends React.Component{
@@ -13,12 +14,13 @@ class App extends React.Component{
       // .then(res => console.log({ res }))
       .then(res => this.setState({ players: res }))
 
-      .catch(err => console.log('AHHHS BUG', err))
+      .catch(err => console.log('AHHH BUG', err))
   }
 
   render(){
     return(
       <div className='App'>
+        <Navbar />
         <PlayerCard players={this.state.players} />
       </div>
     )

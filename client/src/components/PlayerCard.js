@@ -4,14 +4,13 @@ import { Card } from 'semantic-ui-react';
 function PlayerCard(props){
 
     return(
-      <div className="followers">
-          <h2>Players: </h2>
+      <div className="players">
         {props.players.map(player => {
             return(
-                <Card key={player.id} style={{margin: '0 auto'}} className="card">
+                <Card data-testId="cardContainer" key={player.id} style={{margin: '0 auto'}} className="card">
                     <Card.Content>                        
-                        <Card.Header>{player.name}</Card.Header>
-                        <Card.Meta>{player.country}</Card.Meta>
+                        <Card.Header data-testId="player-name">{player.name}</Card.Header>
+                        <Card.Meta test-Id="player-country">{player.country}</Card.Meta>
                         Searches: {player.searches}
                     </Card.Content>
                 </Card>
